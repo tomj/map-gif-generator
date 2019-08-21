@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 	const canvas = createCanvas(200, 200)
 	const ctx = canvas.getContext('2d')
 	const encoder = new GIFEncoder(200, 200);
-	
+
 	// Create GIF
 	encoder.createReadStream().pipe(res);
 	encoder.start();
@@ -23,21 +23,6 @@ app.get('/', (req, res) => {
 	encoder.setDelay(500);  // frame delay in ms
 	encoder.setQuality(10); // image quality. 10 is default.
 
-
-	// First frame
-	ctx.font = '30px Impact'
-	ctx.fillText('Awesome!', 50, 100)
-
-	// Draw line under text
-	var text = ctx.measureText('Awesome!')
-	ctx.strokeStyle = 'rgba(0,0,0,0.5)'
-	ctx.beginPath()
-	ctx.lineTo(50, 102)
-	ctx.lineTo(50 + text.width, 102)
-	ctx.stroke()
-	encoder.addFrame(ctx);
-
-	// Draw cat with lime helmet
 	var promise1 = loadImage('https://picsum.photos/200');
 	var promise2 = loadImage('https://picsum.photos/200');
 	var promise3 = loadImage('https://picsum.photos/200');
