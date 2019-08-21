@@ -10,12 +10,12 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
-const canvas = createCanvas(800, 800)
-const ctx = canvas.getContext('2d')
-const encoder = new GIFEncoder(800, 800);
 
 app.get('/', (req, res) => {
-
+	const canvas = createCanvas(200, 200)
+	const ctx = canvas.getContext('2d')
+	const encoder = new GIFEncoder(200, 200);
+	
 	// Create GIF
 	encoder.createReadStream().pipe(res);
 	encoder.start();
@@ -38,23 +38,23 @@ app.get('/', (req, res) => {
 	encoder.addFrame(ctx);
 
 	// Draw cat with lime helmet
-	loadImage('http://boat.horse/images/ambient/ambient_main.jpg').then((image) => {
-		ctx.drawImage(image, 50, 0, 70, 70)
+	var promise1 = loadImage('https://picsum.photos/200');
+	var promise2 = loadImage('https://picsum.photos/200');
+	var promise3 = loadImage('https://picsum.photos/200');
+
+	Promise.all([promise1, promise2, promise3]).then(function(values) {
+	 	ctx.drawImage(values[0], 0, 0, 200, 200);
 		encoder.addFrame(ctx);
+	  	
+		ctx.drawImage(values[1], 0, 0, 200, 200);
+		encoder.addFrame(ctx);
+
+		ctx.drawImage(values[2], 0, 0, 200, 200);
+	  	encoder.addFrame(ctx);
+
 		encoder.finish();
-	})
+	});
 });
-
-function sendAsGIF(response, canvas) {
-  var encoder = createGifEncoder({x: canvas.width, y: canvas.height}, response);
-  // Add 3 frames
-  encoder.addFrame(context);
-  encoder.addFrame(context);
-  encoder.addFrame(context);
-
-  encoder.finish();
-
-};
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
