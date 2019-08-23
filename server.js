@@ -3,18 +3,21 @@
 const express = require('express');
 const { createCanvas, loadImage } = require('canvas')
 const GIFEncoder = require('gifencoder');
+const dotenv = require('dotenv');
 
 // Constants
+dotenv.config();
 const PORT = 8080;
 const HOST = '0.0.0.0';
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 
 // App
 const app = express();
 
 app.get('/', (req, res) => {
-	const canvas = createCanvas(200, 200)
+	const canvas = createCanvas(300, 300)
 	const ctx = canvas.getContext('2d')
-	const encoder = new GIFEncoder(200, 200);
+	const encoder = new GIFEncoder(300, 300);
 
 	// Create GIF
 	encoder.createReadStream().pipe(res);
@@ -23,21 +26,23 @@ app.get('/', (req, res) => {
 	encoder.setDelay(500);  // frame delay in ms
 	encoder.setQuality(10); // image quality. 10 is default.
 
-	var promise1 = loadImage('https://picsum.photos/200');
-	var promise2 = loadImage('https://picsum.photos/200');
-	var promise3 = loadImage('https://picsum.photos/200');
+	var promise1 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/-51.82,67.111,5,45,0/300x300?access_token=${ACCESS_TOKEN}`);
+	var promise2 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/-51.82,67.101,5,45,0/300x300?access_token=${ACCESS_TOKEN}`);
+	var promise3 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/-51.82,67.091,5,45,0/300x300?access_token=${ACCESS_TOKEN}`);
 
 	Promise.all([promise1, promise2, promise3]).then(function(values) {
-	 	ctx.drawImage(values[0], 0, 0, 200, 200);
+	 	ctx.drawImage(values[0], 0, 0, 300, 300);
 		encoder.addFrame(ctx);
 	  	
-		ctx.drawImage(values[1], 0, 0, 200, 200);
+		ctx.drawImage(values[1], 0, 0, 300, 300);
 		encoder.addFrame(ctx);
 
-		ctx.drawImage(values[2], 0, 0, 200, 200);
+		ctx.drawImage(values[2], 0, 0, 300, 300);
 	  	encoder.addFrame(ctx);
 
 		encoder.finish();
+	}).catch(function (err) {
+    	console.log(err.message);
 	});
 });
 
