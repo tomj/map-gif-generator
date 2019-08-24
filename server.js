@@ -4,6 +4,7 @@ const express = require('express');
 const { createCanvas, loadImage } = require('canvas')
 const GIFEncoder = require('gifencoder');
 const dotenv = require('dotenv');
+var logger = require('morgan');
 
 // Constants
 dotenv.config();
@@ -11,10 +12,24 @@ const PORT = 8080;
 const HOST = '0.0.0.0';
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 
-// App
+// App and router setup
 const app = express();
+app.use(express.json());
+app.use(logger('dev'));
+var router = express.Router();
+router.use(function(req, res, next) {
+    console.log(req.method, req.url);
+    next();
+});
 
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
+
+	const layers = req.body.layers;
+	const title = req.body.title;
+	const description = req.body.description;
+	const coords = req.body.coords;
+	const zoom = req.body.zoom;
+
 	const canvas = createCanvas(300, 300)
 	const ctx = canvas.getContext('2d')
 	const encoder = new GIFEncoder(300, 300);
