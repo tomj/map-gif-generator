@@ -24,6 +24,7 @@ router.use(function(req, res, next) {
 
 app.post('/', (req, res) => {
 
+	res.type("image/gif");
 	const layers = req.body.layers;
 	const title = req.body.title;
 	const description = req.body.description;
@@ -41,9 +42,9 @@ app.post('/', (req, res) => {
 	encoder.setDelay(500);  // frame delay in ms
 	encoder.setQuality(10); // image quality. 10 is default.
 
-	var promise1 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/-51.82,67.111,5,45,0/300x300?access_token=${ACCESS_TOKEN}`);
-	var promise2 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/-51.82,67.101,5,45,0/300x300?access_token=${ACCESS_TOKEN}`);
-	var promise3 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/-51.82,67.091,5,45,0/300x300?access_token=${ACCESS_TOKEN}`);
+	var promise1 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/${coords[1]},${coords[0]},${zoom},0,0/300x300?access_token=${ACCESS_TOKEN}`);
+	var promise2 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/${coords[1]},${coords[0]},${zoom},0,0/300x300?access_token=${ACCESS_TOKEN}`);
+	var promise3 = loadImage(`https://api.mapbox.com/styles/v1/ryanbateman/cjzo9fmc00k2m1clp1rr163ix/static/${coords[1]},${coords[0]},${zoom},0,0/300x300?access_token=${ACCESS_TOKEN}`);
 
 	Promise.all([promise1, promise2, promise3]).then(function(values) {
 	 	ctx.drawImage(values[0], 0, 0, 300, 300);
