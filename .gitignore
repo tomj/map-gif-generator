@@ -164,3 +164,6 @@ jspm_packages/
 
 # mypy
 .mypy_cache/
+
+# VSCode
+.devcontainer.json
