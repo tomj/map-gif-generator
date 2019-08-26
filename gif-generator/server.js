@@ -16,7 +16,7 @@ var style = JSON.parse(fs.readFileSync('teststyle.json', 'UTF-8'))
 dotenv.config()
 const PORT = 8080
 const HOST = '0.0.0.0'
-const ACCESS_TOKEN = process.env.ACCESS_TOKEN
+const ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN
 
 // App and router setup
 const app = express()
