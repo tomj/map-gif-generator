@@ -25,8 +25,6 @@ wheels/
 *.egg
 MANIFEST
 
-<<<<<<< HEAD
-
 # node-waf configuration
 .lock-wscript
 
@@ -167,3 +165,5 @@ jspm_packages/
 
 # VSCode
 .devcontainer.json
+# Test stuff
+test*.*
