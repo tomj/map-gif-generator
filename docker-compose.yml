@@ -1,0 +1,17 @@
+version: '3'
+services:
+  gif-generator:
+      build: ./gif-generator
+      expose:
+          - 8080
+      # links:
+      #     - mbgl-renderer
+      # volumes:
+      #     - ./appdata:/appdata
+
+  # mbgl-renderer:
+  #     build: ./mbgl-renderer
+  #     expose:
+  #         - 81
+      # volumes:
+      #     - ./appdata:/appdata
