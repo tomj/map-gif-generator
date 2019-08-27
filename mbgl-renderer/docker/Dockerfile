@@ -21,11 +21,11 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* \
   && npm install --no-save
 
-EXPOSE 81
+EXPOSE 8004
 
 RUN pwd
 RUN ls -al
 COPY ./entrypoint.sh /root
 RUN chmod +x /root/entrypoint.sh
 ENTRYPOINT [ "/root/entrypoint.sh" ]
-HEALTHCHECK CMD curl --fail http://localhost:81/ || exit 1
+HEALTHCHECK CMD curl --fail http://localhost:8004/ || exit 1
