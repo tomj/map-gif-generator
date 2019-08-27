@@ -1,0 +1,44 @@
+{
+    "version": 8,
+    "name": "GlacierBay",
+    "metadata": {
+        "topic": "Retreat of glaciers in Glacier Bay NP, 1986-2018",
+        "bbox": {
+            "minx": 58.746110621412086,
+            "miny": -136.6284462686509,
+            "maxx": 59.14358286650635,
+            "maxy": -135.68369801174188
+        },
+        "mapbox:sdk-support": {
+            "js": "0.54.0",
+            "android": "7.4.0",
+            "ios": "4.10.0"
+        }
+    },
+    "center": [-136.1086313990608, 58.96130401741544],
+    "zoom": 9.434155739835361,
+    "bearing": 0,
+    "pitch": 0,
+    "sources": {
+        "mapbox://earthrise.GlacierBay_Landsat2011-09-11": {
+            "url": "mapbox://earthrise.GlacierBay_Landsat2011-09-11",
+            "type": "raster",
+            "tileSize": 256
+        }
+    },
+    "sprite": "mapbox://sprites/tomjtomj/cjyrmq6k600p61cmyw1cmk3fa/ck2u8j60r58fu0sgyxrigm3cu",
+    "layers": [
+        {
+            "id": "earthrise-GlacierBay_Landsat2011-09-11",
+            "type": "raster",
+            "source": "mapbox://earthrise.GlacierBay_Landsat2011-09-11",
+            "paint": {"raster-opacity": 1}
+        }
+    ],
+    "created": "2019-07-31T19:14:37.659Z",
+    "id": "cjyrmq6k600p61cmyw1cmk3fa",
+    "modified": "2019-07-31T19:14:37.659Z",
+    "owner": "tomjtomj",
+    "visibility": "private",
+    "draft": false
+}
