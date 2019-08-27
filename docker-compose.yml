@@ -10,6 +10,7 @@ services:
           - ./appdata:/appdata
 
   mbgl-renderer:
+      restart: always
       build: ./mbgl-renderer/docker
       expose:
           - 81
