@@ -23,7 +23,9 @@ RUN apt-get update \
 
 EXPOSE 81
 
-COPY ./docker/entrypoint.sh /root
+RUN pwd
+RUN ls -al
+COPY ./entrypoint.sh /root
 RUN chmod +x /root/entrypoint.sh
 ENTRYPOINT [ "/root/entrypoint.sh" ]
 HEALTHCHECK CMD curl --fail http://localhost:81/ || exit 1
