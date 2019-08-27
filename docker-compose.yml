@@ -14,7 +14,7 @@ services:
   mbgl-renderer:
       restart: always
       build: ./mbgl-renderer/docker
-      expose:
-          - 81
+      ports:
+          - "8004:8004"
       volumes:
           - ./appdata:/appdata
