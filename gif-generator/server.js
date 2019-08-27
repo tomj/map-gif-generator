@@ -5,7 +5,6 @@ const { createCanvas, loadImage } = require('canvas')
 const GIFEncoder = require('gifencoder');
 const dotenv = require('dotenv');
 var logger = require('morgan');
-import render from 'mbgl-renderer'
 
 // Constants
 dotenv.config();
