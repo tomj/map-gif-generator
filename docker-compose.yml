@@ -2,8 +2,10 @@ version: '3'
 services:
   gif-generator:
       build: ./gif-generator
-      expose:
-          - 8080
+      env_file:
+          - .env
+      ports:
+          - "8080:8080"
       links:
           - mbgl-renderer
       volumes:
