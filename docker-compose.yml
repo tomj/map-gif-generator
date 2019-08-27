@@ -16,5 +16,7 @@ services:
       build: ./mbgl-renderer/docker
       ports:
           - "8004:8004"
+      expose:
+          - 8004
       volumes:
           - ./appdata:/appdata
