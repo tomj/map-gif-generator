@@ -10,7 +10,7 @@ import logger from 'morgan'
 import fs from 'fs'
 
 // style JSON file with MapBox style.  Can also be opened and read instead of imported.
-var style = JSON.parse(fs.readFileSync('teststyle2.json', 'UTF-8'))
+var style = JSON.parse(fs.readFileSync('teststyle.json', 'UTF-8'))
 
 // Constants
 dotenv.config()
@@ -71,6 +71,9 @@ app.post('/', (req, res) => {
 
 	// Create the stream to render the GIF
 	var stream = encoder.createReadStream()
+	res.type("image/gif")
+	stream.pipe(res)
+
 	let chunks = []
 	var fileBuffer;
 
@@ -124,8 +127,6 @@ app.post('/', (req, res) => {
 		})
 
 		// If all rendered correctly, set our response type and pipe the result out
-		res.type("image/gif")
-		stream.pipe(res)
 		encoder.finish()
 		console.log("-------------------------")
 	}).catch(function (err) {

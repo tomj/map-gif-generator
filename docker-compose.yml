@@ -6,15 +6,5 @@ services:
           - ./gif-generator/.env
       ports:
           - "8080:8080"
-      links:
-          - mbgl-renderer
-      volumes:
-          - ./appdata:/appdata
-
-  mbgl-renderer:
-      restart: always
-      build: ./mbgl-renderer/docker
-      ports:
-          - "8004:8004"
       volumes:
           - ./appdata:/appdata
