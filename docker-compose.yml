@@ -3,7 +3,7 @@ services:
   gif-generator:
       build: ./gif-generator
       env_file:
-          - .env
+          - ./gif-generator/.env
       ports:
           - "8080:8080"
       links:
