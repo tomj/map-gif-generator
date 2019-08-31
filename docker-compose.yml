@@ -2,6 +2,8 @@ version: '3'
 services:
   gif-generator:
       build: ./gif-generator
+      depends_on:
+          - mbgl-renderer
       env_file:
           - .env
       ports:
