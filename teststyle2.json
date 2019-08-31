@@ -1,0 +1,162 @@
+{
+  "version": 8,
+  "name": "GlacierBay",
+  "metadata": {
+    "topic": "Retreat of glaciers in Glacier Bay NP, 1986-2018",
+    "bbox": {
+      "minx": 58.746110621412086,
+      "miny": -136.6284462686509,
+      "maxx": 59.14358286650635,
+      "maxy": -135.68369801174188
+    },
+    "mapbox:sdk-support": {
+      "js": "0.54.0",
+      "android": "7.4.0",
+      "ios": "4.10.0"
+    }
+  },
+  "center": [
+    -136.1086313990608,
+    58.96130401741544
+  ],
+  "zoom": 9.434155739835361,
+  "bearing": 0,
+  "pitch": 0,
+  "sources": {
+    "mapbox://earthrise.GlacierBay_Landsat2011-09-11": {
+      "url": "mapbox://earthrise.GlacierBay_Landsat2011-09-11",
+      "type": "raster",
+      "tileSize": 256
+    },
+    "mapbox://earthrise.GlacierBay_Landsat2015-09-22": {
+      "url": "mapbox://earthrise.GlacierBay_Landsat2015-09-22",
+      "type": "raster",
+      "tileSize": 256
+    },
+    "mapbox://earthrise.GlacierBay_Landsat2018-09-30": {
+      "url": "mapbox://earthrise.GlacierBay_Landsat2018-09-30",
+      "type": "raster",
+      "tileSize": 256
+    },
+    "mapbox://earthrise.GlacierBay_Landsat2003-09-05": {
+      "url": "mapbox://earthrise.GlacierBay_Landsat2003-09-05",
+      "type": "raster",
+      "tileSize": 256
+    },
+    "mapbox://earthrise.GlacierBay_Landsat1995-09-24": {
+      "url": "mapbox://earthrise.GlacierBay_Landsat1995-09-24",
+      "type": "raster",
+      "tileSize": 256
+    },
+    "mapbox://earthrise.GlacierBay_Landsat2004-09-07": {
+      "url": "mapbox://earthrise.GlacierBay_Landsat2004-09-07",
+      "type": "raster",
+      "tileSize": 256
+    },
+    "mapbox://earthrise.GlacierBay_Landsat2009-09-05": {
+      "url": "mapbox://earthrise.GlacierBay_Landsat2009-09-05",
+      "type": "raster",
+      "tileSize": 256
+    },
+    "mapbox://earthrise.GlacierBay_Landsat1986-09-06": {
+      "url": "mapbox://earthrise.GlacierBay_Landsat1986-09-06",
+      "type": "raster",
+      "tileSize": 256
+    },
+    "mapbox://earthrise.14fyunnw": {
+      "url": "mapbox://earthrise.14fyunnw",
+      "type": "vector"
+    }
+  },
+  "sprite": "mapbox://sprites/tomjtomj/cjyrmq6k600p61cmyw1cmk3fa/ck2u8j60r58fu0sgyxrigm3cu",
+  "glyphs": "mapbox://fonts/tomjtomj/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "layout": {},
+      "paint": {}
+    },
+    {
+      "id": "earthrise-GlacierBay_Landsat1986-09-06",
+      "type": "raster",
+      "source": "mapbox://earthrise.GlacierBay_Landsat1986-09-06",
+      "paint": {
+        "raster-opacity": 1
+      }
+    },
+    {
+      "id": "earthrise-GlacierBay_Landsat1995-09-24",
+      "type": "raster",
+      "source": "mapbox://earthrise.GlacierBay_Landsat1995-09-24",
+      "paint": {
+        "raster-opacity": 1
+      }
+    },
+    {
+      "id": "earthrise-GlacierBay_Landsat2003-09-05",
+      "type": "raster",
+      "source": "mapbox://earthrise.GlacierBay_Landsat2003-09-05",
+      "paint": {
+        "raster-opacity": 1
+      }
+    },
+    {
+      "id": "earthrise-GlacierBay_Landsat2004-09-07",
+      "type": "raster",
+      "source": "mapbox://earthrise.GlacierBay_Landsat2004-09-07",
+      "paint": {
+        "raster-opacity": 1
+      }
+    },
+    {
+      "id": "earthrise-GlacierBay_Landsat2009-09-05",
+      "type": "raster",
+      "source": "mapbox://earthrise.GlacierBay_Landsat2009-09-05",
+      "paint": {
+        "raster-opacity": 1
+      }
+    },
+    {
+      "id": "earthrise-GlacierBay_Landsat2011-09-11",
+      "type": "raster",
+      "source": "mapbox://earthrise.GlacierBay_Landsat2011-09-11",
+      "paint": {
+        "raster-opacity": 1
+      }
+    },
+    {
+      "id": "earthrise-GlacierBay_Landsat2015-09-22",
+      "type": "raster",
+      "source": "mapbox://earthrise.GlacierBay_Landsat2015-09-22",
+      "paint": {
+        "raster-opacity": 1
+      }
+    },
+    {
+      "id": "earthrise-GlacierBay_Landsat2018-09-30",
+      "type": "raster",
+      "source": "mapbox://earthrise.GlacierBay_Landsat2018-09-30",
+      "paint": {
+        "raster-opacity": 1
+      }
+    },
+    {
+      "layout": {},
+      "type": "line",
+      "source": "mapbox://earthrise.14fyunnw",
+      "id": "glaciers-georef-features-9m6fhr",
+      "paint": {
+        "line-color": "hsl(44, 100%, 60%)",
+        "line-width": 2
+      },
+      "source-layer": "Glaciers-georef-features-9m6fhr"
+    }
+  ],
+  "created": "2019-07-31T19:14:37.659Z",
+  "id": "cjyrmq6k600p61cmyw1cmk3fa",
+  "modified": "2019-07-31T19:14:37.659Z",
+  "owner": "tomjtomj",
+  "visibility": "private",
+  "draft": false
+}

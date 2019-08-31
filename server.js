@@ -10,7 +10,7 @@ import logger from 'morgan'
 import fs from 'fs'
 
 // style JSON file with MapBox style.  Can also be opened and read instead of imported.
-var style = JSON.parse(fs.readFileSync('teststyle.json', 'UTF-8'))
+const style = JSON.parse(fs.readFileSync('teststyle.json', 'UTF-8'))
 
 // Constants
 dotenv.config()

@@ -1,7 +1,17 @@
-FROM node:8-stretch
+FROM node:10
 
+# Create app directory
 WORKDIR /app
 COPY . /app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get -y install \
@@ -21,11 +31,11 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* \
   && npm install --no-save
 
-EXPOSE 8004
+EXPOSE 8080
 
 RUN pwd
 RUN ls -al
 COPY ./entrypoint.sh /root
 RUN chmod +x /root/entrypoint.sh
 ENTRYPOINT [ "/root/entrypoint.sh" ]
-HEALTHCHECK CMD curl --fail http://localhost:8004/ || exit 1
+
