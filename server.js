@@ -64,7 +64,7 @@ app.post('/', (req, res) => {
 		// Keep only the layer that is the one we're rendering OR 
 		// wasn't included in our list of passed layer IDs
 		styleClone.layers = styleClone.layers.filter(layer =>
-			layer.id == layerToKeep || !layers.includes(layer.id)
+			layer.id == layerToKeep
 		)
 		promises[index] = render(styleClone, width, height, { zoom, center, token: `${ACCESS_TOKEN}` })	
 	})
